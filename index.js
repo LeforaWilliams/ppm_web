@@ -13,11 +13,8 @@ let limits;
 let limitResponse = [];
 let time = [];
 
-app.post("/validateLimits", (req, res) => {
-    temp = req.body.measurements[0].series.temperature;
-    limits = req.body.measurements[0].limits.temperature;
-    timeStamps = req.body.measurements[0].series.$_time;
-    temp.forEach((tempLimit, time) => {
+const checkLimits = (tempArray, limits) => {
+    tempArray.forEach(tempLimit => {
         if (tempLimit > limits.upperError) {
             limitResponse.push(
                 `UPPER ERROR! Temperature above ${limits.upperError}`
@@ -38,6 +35,12 @@ app.post("/validateLimits", (req, res) => {
             limitResponse.push("OK");
         }
     });
+};
+
+app.post("/validateLimits", (req, res) => {
+    temp = req.body.measurements[0].series.temperature;
+    limits = req.body.measurements[0].limits.temperature;
+    checkLimits(temp, limits);
     res.send(limitResponse);
 });
 
