@@ -11,10 +11,11 @@ app.use(bodyParser.json());
 let temp = [];
 let limits;
 let limitResponse = [];
-app.post("/validateLimits", function(req, res) {
+
+app.post("/validateLimits", (req, res) => {
     temp = req.body.measurements[0].series.temperature;
     limits = req.body.measurements[0].limits.temperature;
-    temp.forEach(function(tempLimit) {
+    temp.forEach(tempLimit => {
         if (tempLimit > limits.upperError) {
             limitResponse.push(
                 `UPPER ERROR! Temperature above ${limits.upperError}`
