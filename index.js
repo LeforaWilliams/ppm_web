@@ -8,18 +8,24 @@ app.use(
 );
 app.use(bodyParser.json());
 
-let temp = 0;
-
-//schnittstelle soll info über gesnedete messdaten zurücksenden
-
+let temp = [];
+let limits;
+let limitResponse = [];
 app.post("/validateLimits", function(req, res) {
-    console.log(req.body);
-    res.send(req.body);
-});
+    temp = req.body.measurements[0].series.temperature;
+    limits = req.body.measurements[0].limits.temperature;
+    temp.forEach(function(tempLimit) {
+        if (tempLimit > limits.lowerError) {
+            limitResponse.push(
+                `Lower Error! Temperature above ${limits.lowerError}`
+            );
+        } else {
+            limitResponse.push("OK");
+        }
+    });
+    console.log("MESUREMENTS", limitResponse);
 
-app.get("/validateLimits", function(req, res) {
-    temp = req.body;
-    console.log(temp);
+    res.send(req.body);
 });
 
 app.listen(8080, () => console.log("listening :D"));
