@@ -15,16 +15,27 @@ app.post("/validateLimits", function(req, res) {
     temp = req.body.measurements[0].series.temperature;
     limits = req.body.measurements[0].limits.temperature;
     temp.forEach(function(tempLimit) {
-        if (tempLimit > limits.lowerError) {
+        if (tempLimit > limits.upperError) {
             limitResponse.push(
-                `Lower Error! Temperature above ${limits.lowerError}`
+                `UPPER ERROR! Temperature above ${limits.upperError}`
+            );
+        } else if (tempLimit > limits.upperWarn) {
+            limitResponse.push(
+                `WARNING! Temperature above ${limits.upperWarn}`
+            );
+        } else if (tempLimit > limits.lowerWarn) {
+            limitResponse.push(
+                `WARNING! Temperature above ${limits.lowerWarn}`
+            );
+        } else if (tempLimit > limits.lowerError) {
+            limitResponse.push(
+                `LOWER ERROR! Temperature above ${limits.lowerError}`
             );
         } else {
             limitResponse.push("OK");
         }
     });
     console.log("MESUREMENTS", limitResponse);
-
     res.send(req.body);
 });
 
