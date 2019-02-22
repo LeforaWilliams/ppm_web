@@ -11,7 +11,6 @@ app.use(bodyParser.json());
 let temp = [];
 let limits;
 let limitResponse = [];
-let time = [];
 
 const checkLimits = (tempArray, limits) => {
     tempArray.forEach(tempLimit => {
