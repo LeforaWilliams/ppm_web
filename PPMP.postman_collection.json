@@ -1,0 +1,213 @@
+{
+	"info": {
+		"name": "PPMP",
+		"_postman_id": "7f93303f-23fa-515c-80df-8170f3430398",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "valid_lowerError",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content-spec\": \"urn:spec://eclipse.org/unide/measurement-message#v2\",\r\n  \"device\": {\r\n    \"deviceID\": \"device_1\"\r\n  },\r\n  \"measurements\": [\r\n    {\r\n      \"ts\": \"2018-10-26T08:37:01Z\",\r\n      \"series\": {\r\n        \"$_time\": [0,100,1200,1300,1400,1500,1600,1700,1800,2100,2400,4100],\r\n        \"temperature\": [23,21,20,24,25,17,14,12,10,15,18,27]\r\n      },\r\n      \"limits\": {\r\n      \t\"temperature\": {\r\n\t\t  \"lowerError\": 15,\r\n\t\t  \"lowerWarn\": 18,\r\n\t\t  \"upperWarn\": 28,\r\n\t\t  \"upperError\": 38\r\n\t\t}\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:port/validateLimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "port",
+					"path": [
+						"validateLimits"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "valid_lowerWarn",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content-spec\": \"urn:spec://eclipse.org/unide/measurement-message#v2\",\r\n  \"device\": {\r\n    \"deviceID\": \"device_1\"\r\n  },\r\n  \"measurements\": [\r\n    {\r\n      \"ts\": \"2018-10-26T08:37:01Z\",\r\n      \"series\": {\r\n        \"$_time\": [0,100,1200,1300,1400,1500,1600,1700,1800,2100,2400,4100],\r\n        \"temperature\": [23,21,20,24,25,20,17,16,20,22,24,27]\r\n      },\r\n      \"limits\": {\r\n      \t\"temperature\": {\r\n\t\t  \"lowerWarn\": 15,\r\n\t\t  \"lowerError\": 18,\r\n\t\t  \"upperWarn\": 28,\r\n\t\t  \"upperError\": 38\r\n\t\t}\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:port/validateLimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "port",
+					"path": [
+						"validateLimits"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "valid_withinLimits",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content-spec\": \"urn:spec://eclipse.org/unide/measurement-message#v2\",\r\n  \"device\": {\r\n    \"deviceID\": \"device_1\"\r\n  },\r\n  \"measurements\": [\r\n    {\r\n      \"ts\": \"2018-10-26T08:37:01Z\",\r\n      \"series\": {\r\n        \"$_time\": [0,100,1200,1300,1400,1500,1600,1700,1800,2100,2400,4100],\r\n        \"temperature\": [23,21,20,24,25,27,24,23,24,26,24,27]\r\n      },\r\n      \"limits\": {\r\n      \t\"temperature\": {\r\n\t\t  \"lowerError\": 15,\r\n\t\t  \"lowerWarn\": 18,\r\n\t\t  \"upperWarn\": 28,\r\n\t\t  \"upperError\": 38\r\n\t\t}\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:port/validateLimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "port",
+					"path": [
+						"validateLimits"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "valid_upperWarn",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content-spec\": \"urn:spec://eclipse.org/unide/measurement-message#v2\",\r\n  \"device\": {\r\n    \"deviceID\": \"device_1\"\r\n  },\r\n  \"measurements\": [\r\n    {\r\n      \"ts\": \"2018-10-26T08:37:01Z\",\r\n      \"series\": {\r\n        \"$_time\": [0,100,200,300,400,1500,1600,1700,1800,2100,2300,4100],\r\n        \"temperature\": [23,21,20,24,25,27,28,30,35,37,35,32]\r\n      },\r\n      \"limits\": {\r\n      \t\"temperature\": {\r\n\t\t  \"lowerWarn\": 18,\r\n\t\t  \"lowerError\": 15,\r\n\t\t  \"upperWarn\": 28,\r\n\t\t  \"upperError\": 38\r\n\t\t}\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:port/validateLimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "port",
+					"path": [
+						"validateLimits"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "valid_upperError",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content-spec\": \"urn:spec://eclipse.org/unide/measurement-message#v2\",\r\n  \"device\": {\r\n    \"deviceID\": \"device_1\"\r\n  },\r\n  \"measurements\": [\r\n    {\r\n      \"ts\": \"2018-10-26T08:37:01Z\",\r\n      \"series\": {\r\n        \"$_time\": [0,100,200,300,400,1500,1600,1700,1800,2100,2300,4100],\r\n        \"temperature\": [23,21,20,24,25,27,28,30,35,40,52,57]\r\n      },\r\n      \"limits\": {\r\n      \t\"temperature\": {\r\n\t\t  \"lowerError\": 15,\r\n\t\t  \"lowerWarn\": 18,\r\n\t\t  \"upperWarn\": 28,\r\n\t\t  \"upperError\": 38\r\n\t\t}\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:port/validateLimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "port",
+					"path": [
+						"validateLimits"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "invalid_upperError",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content-spec\": \"urn:spec://eclipse.org/unide/measurement-message#v2\",\r\n  \"device\": {\r\n    \"deviceID\": \"device_1\"\r\n  },\r\n  \"measurements\": [\r\n    {\r\n      \"ts\": \"2018-10-26T08:37:01Z\",\r\n      \"series\": {\r\n        \"$time\": [0,100,200,300,1500,1700,1800,2100,2300,4100],\r\n        \"temperature\": [23,21,20,24,25,27,28,30,35,40,52,57]\r\n      },\r\n      \"limits\": {\r\n      \t\"temperature\": {\r\n\t\t  \"lowerError\": 15,\r\n\t\t  \"lowerWarn\": 18,\r\n\t\t  \"upperWarn\": 28,\r\n\t\t  \"upperError\": 38\r\n\t\t}\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:port/validateLimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "port",
+					"path": [
+						"validateLimits"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "invalid_upperError2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content-spec\": \"urn:spec://eclipse.org/unide/measurement-message#v2\",\r\n  \"device\": {\r\n    \"deviceID\": \"device_1\"\r\n  },\r\n  \"measurements\": [\r\n    {\r\n      \"ts\": \"2018-10-26T08:37:01Z\",\r\n      \"series\": {\r\n        \"$_time\": [0,100,200,300,1500,1700,1800,2100,2300,4100],\r\n        \"temperature\": [23,21,20,24,25,27,28,30,35,40,52,57]\r\n      },\r\n      \"limits\": {\r\n      \t\"temperature\": {\r\n\t\t  \"lowerEror\": 15,\r\n\t\t  \"lowerWarm\": 18,\r\n\t\t  \"upperWarm\": 28,\r\n\t\t  \"upperEror\": 38\r\n\t\t}\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:port/validateLimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "port",
+					"path": [
+						"validateLimits"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
